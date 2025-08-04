@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,6 +135,7 @@
       const totalTime = (leadsA * timeA) + (leadsB * timeB) + (leadsC * timeC);
       const average = totalLeads > 0 ? (totalTime / totalLeads).toFixed(2) : 0;
 
+      alert(`⏱ Average response time: ${average} hours`);
       document.getElementById('result').textContent = `⏱ Average response time: ${average} hours`;
     }
   </script>
