@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Average Response Time Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .brand-section {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 8px;
+      background-color: #f9fbfc;
+    }
+
+    .brand-section h3 {
+      margin-top: 0;
+      color: #444;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🕒 Average Response Time Calculator</h2>
+    <form id="responseForm">
+      <div class="brand-section">
+        <h3>Brand A</h3>
+        <label>Leads:</label>
+        <input type="number" id="leadsA" required>
+
+        <label>Response Time (hours):</label>
+        <input type="number" id="timeA" step="0.01" required>
+      </div>
+
+      <div class="brand-section">
+        <h3>Brand B</h3>
+        <label>Leads:</label>
+        <input type="number" id="leadsB" required>
+
+        <label>Response Time (hours):</label>
+        <input type="number" id="timeB" step="0.01" required>
+      </div>
+
+      <div class="brand-section">
+        <h3>Brand C</h3>
+        <label>Leads:</label>
+        <input type="number" id="leadsC" required>
+
+        <label>Response Time (hours):</label>
+        <input type="number" id="timeC" step="0.01" required>
+      </div>
+
+      <button type="button" onclick="calculateAverage()">Calculate Average</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateAverage() {
+      const leadsA = parseInt(document.getElementById('leadsA').value) || 0;
+      const timeA = parseFloat(document.getElementById('timeA').value) || 0;
+
+      const leadsB = parseInt(document.getElementById('leadsB').value) || 0;
+      const timeB = parseFloat(document.getElementById('timeB').value) || 0;
+
+      const leadsC = parseInt(document.getElementById('leadsC').value) || 0;
+      const timeC = parseFloat(document.getElementById('timeC').value) || 0;
+
+      const totalLeads = leadsA + leadsB + leadsC;
+      const totalTime = (leadsA * timeA) + (leadsB * timeB) + (leadsC * timeC);
+      const average = totalLeads > 0 ? (totalTime / totalLeads).toFixed(2) : 0;
+
+      document.getElementById('result').textContent = `⏱ Average response time: ${average} hours`;
+    }
+  </script>
+</body>
+</html>
